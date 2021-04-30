@@ -16,10 +16,9 @@
   justify-content: center;
 
   @media only screen and (max-width: $bp-smallest) {
-    order:1;
+    order: 1;
     flex: 0 0 100%;
     background-color: var(--color-grey-light-2);
-    
   }
 
   &__input {
@@ -309,7 +308,7 @@
     text-transform: uppercase;
 
     @media only screen and (max-width: $bp-small) {
-      font-size: .5rem;
+      font-size: 0.5rem;
     }
   }
 }
@@ -397,16 +396,19 @@
     margin-left: 0.7rem;
 
     //older browsers
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
     //Newer browsers - masks
 
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
   }
 }
 
